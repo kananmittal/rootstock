@@ -61,18 +61,19 @@ export default function Header({ activeSection }: HeaderProps) {
             <motion.div
               layout
               transition={{ duration: 0.3 }}
-              className={`relative overflow-hidden rounded-full transition-transform duration-300 group-hover:scale-105`}
+              className={`relative overflow-hidden transition-transform duration-300 group-hover:scale-105`}
             >
               <Image
                 src="/RootStock.jpeg"
                 alt="RootStock Technology Logo"
                 width={50}
                 height={50}
-                className={`block object-cover transition-all duration-300 ${isScrolled ? 'w-9 h-9' : 'w-11 h-11'}`}
+                className={`block object-contain transition-all duration-300 ${isScrolled ? 'w-9 h-9' : 'w-11 h-11'}`}
               />
             </motion.div>
             <div className="flex flex-col">
               <span className={`font-bold text-gray-900 leading-none tracking-tight transition-all duration-300 ${isScrolled ? 'text-lg' : 'text-xl'}`}>RootStock</span>
+              <span className={`font-medium text-gray-500 leading-none tracking-wide ${isScrolled ? 'text-[0.6rem]' : 'text-xs'}`}>Technology</span>
             </div>
           </a>
 
