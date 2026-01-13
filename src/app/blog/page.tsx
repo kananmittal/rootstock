@@ -3,6 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 type Post = {
   title: string;
@@ -51,6 +53,7 @@ const posts: Post[] = [
 export default function BlogIndexPage() {
   return (
     <main className="bg-gray-50 min-h-screen">
+      <Header activeSection="blog" />
       {/* Hero */}
       <section className="relative overflow-hidden pt-28 pb-16 bg-white">
         <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white opacity-50"></div>
@@ -176,6 +179,7 @@ export default function BlogIndexPage() {
           </div>
         </div>
       </section>
-    </main>
+      <Footer />
+    </main >
   );
 }

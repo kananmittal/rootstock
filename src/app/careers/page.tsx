@@ -94,7 +94,7 @@ export default function CareersPage() {
                                 <div className="flex flex-wrap gap-2 mt-2">
                                     <span className="bg-blue-50 text-blue-700 text-xs px-3 py-1 rounded-full font-medium">Project Associate-II</span>
                                     <span className="bg-green-50 text-green-700 text-xs px-3 py-1 rounded-full font-medium">Full Time</span>
-                                    <span className="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full font-medium">On-Site (NTPC NETRA)</span>
+                                    <span className="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full font-medium">On-Site</span>
                                 </div>
                             </div>
                             <button
