@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { PulsatingButton } from "@/components/magicui/pulsating-button";
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -26,10 +27,10 @@ export default function Header({ activeSection }: HeaderProps) {
   }, []);
 
   const navLinks = [
-    { name: 'About Us', href: '#about' },
-    { name: 'Products', href: '#technology', dropdown: true },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Careers', href: '#ethics' },
+    { name: 'About Us', href: '/#about', id: 'about' },
+    { name: 'Products', href: '/#technology', id: 'technology', dropdown: true },
+    { name: 'Blog', href: '/blog', id: 'blog' },
+    { name: 'Careers', href: '/#ethics', id: 'ethics' },
   ];
 
   const products = [
@@ -57,7 +58,7 @@ export default function Header({ activeSection }: HeaderProps) {
           }
         `}>
           {/* Logo */}
-          <a href="#" className="flex items-center space-x-3 group z-50 pl-2">
+          <Link href="/" className="flex items-center space-x-3 group z-50 pl-2">
             <motion.div
               layout
               transition={{ duration: 0.3 }}
@@ -75,7 +76,7 @@ export default function Header({ activeSection }: HeaderProps) {
               <span className={`font-bold text-gray-900 leading-none tracking-tight transition-all duration-300 ${isScrolled ? 'text-lg' : 'text-xl'}`}>RootStock</span>
               <span className={`font-medium text-gray-500 leading-none tracking-wide ${isScrolled ? 'text-[0.6rem]' : 'text-xs'}`}>Technology</span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1 p-1.5 bg-gray-50/50 backdrop-blur-sm rounded-full border border-gray-100/50 absolute left-1/2 -translate-x-1/2">
@@ -86,11 +87,11 @@ export default function Header({ activeSection }: HeaderProps) {
                 onMouseEnter={() => link.dropdown && setActiveDropdown(link.name)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <a
+                <Link
                   href={link.href}
                   className={`
                     flex items-center gap-1 px-5 py-2 text-sm font-medium rounded-full transition-all duration-200
-                    ${activeSection === link.name.toLowerCase()
+                    ${activeSection === link.id
                       ? 'text-gray-900'
                       : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'
                     }
@@ -102,14 +103,14 @@ export default function Header({ activeSection }: HeaderProps) {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   )}
-                  {activeSection === link.name.toLowerCase() && !link.dropdown && (
+                  {activeSection === link.id && !link.dropdown && (
                     <motion.div
                       layoutId="nav-pill"
                       className="absolute inset-0 bg-white rounded-full shadow-sm ring-1 ring-black/5 -z-10"
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     />
                   )}
-                </a>
+                </Link>
 
                 {/* Dropdown Menu */}
                 <AnimatePresence>
@@ -122,13 +123,13 @@ export default function Header({ activeSection }: HeaderProps) {
                       className="absolute top-full left-0 mt-2 w-64 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden py-2"
                     >
                       {products.map((product) => (
-                        <a
+                        <Link
                           key={product}
-                          href="#technology"
+                          href="/#technology"
                           className="block px-6 py-3 text-sm text-gray-600 hover:text-[#415b3e] hover:bg-gray-50 transition-colors"
                         >
                           {product}
-                        </a>
+                        </Link>
                       ))}
                     </motion.div>
                   )}
@@ -141,7 +142,7 @@ export default function Header({ activeSection }: HeaderProps) {
           <div className="flex items-center gap-3 pr-1">
             <div className="hidden lg:block">
               <PulsatingButton
-                href="#contact"
+                href="/#contact"
                 className="btn bg-white text-[#415b3e] border border-[#415b3e] hover:bg-gray-50 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all text-sm px-6 py-2.5 rounded-full font-semibold"
               >
                 Get Consultation
@@ -182,19 +183,19 @@ export default function Header({ activeSection }: HeaderProps) {
             >
               <div className="bg-white/90 backdrop-blur-xl rounded-[2rem] shadow-2xl border border-gray-100 p-5 space-y-2 ring-1 ring-black/5">
                 {navLinks.map((link) => (
-                  <a
+                  <Link
                     key={link.name}
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`block px-5 py-3.5 rounded-[1.25rem] font-medium transition-colors ${activeSection === link.name.toLowerCase() ? 'bg-primary/5 text-primary' : 'text-gray-600 hover:bg-gray-50'}`}
+                    className={`block px-5 py-3.5 rounded-[1.25rem] font-medium transition-colors ${activeSection === link.id ? 'bg-primary/5 text-primary' : 'text-gray-600 hover:bg-gray-50'}`}
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 ))}
                 <div className="mt-8 px-4">
-                  <a href="#contact" className="block w-full text-center bg-white text-[#415b3e] border border-[#415b3e] font-semibold py-4 rounded-[1.5rem] shadow-lg active:scale-95 transition-transform hover:bg-gray-50">
+                  <Link href="/#contact" className="block w-full text-center bg-white text-[#415b3e] border border-[#415b3e] font-semibold py-4 rounded-[1.5rem] shadow-lg active:scale-95 transition-transform hover:bg-gray-50">
                     Get Consultation
-                  </a>
+                  </Link>
                 </div>
               </div>
             </motion.div>

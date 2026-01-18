@@ -141,12 +141,8 @@ export default function AboutSection() {
           </div>
 
           {/* Key Competencies */}
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all">
-                <div className="text-[#415b3e] font-bold text-lg mb-2">Syntex & Education</div>
-                <p className="text-gray-600">Complete injection pipelines for defining PDFs, audios, and videos into secure educational platforms.</p>
-              </div>
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all">
                 <div className="text-[#415b3e] font-bold text-lg mb-2">Advanced pipelines</div>
                 <p className="text-gray-600">Proprietary OCR-to-text models and unique multi-document architecture for synthesizing vast information.</p>

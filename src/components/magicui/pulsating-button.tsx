@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import Link from "next/link";
 
 interface PulsatingButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
@@ -9,7 +9,7 @@ interface PulsatingButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorElem
 
 export function PulsatingButton({ href, children, className = "", ...props }: PulsatingButtonProps) {
   return (
-    <a
+    <Link
       href={href}
       {...props}
       className={[
@@ -22,6 +22,6 @@ export function PulsatingButton({ href, children, className = "", ...props }: Pu
       ].join(" ")}
     >
       {children}
-    </a>
+    </Link>
   );
 }

@@ -69,7 +69,7 @@ export default function ContactSection() {
                   className="w-full px-4 py-4 rounded-xl border-2 border-gray-200 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 group-hover:border-primary/50 resize-none"
                 ></textarea>
               </div>
-              <button type="submit" className="btn btn-primary group w-full text-lg">
+              <button type="submit" className="btn btn-primary group w-full text-lg text-white">
                 <span className="relative z-10">Send Message</span>
               </button>
             </form>
